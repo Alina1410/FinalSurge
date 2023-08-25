@@ -1,18 +1,26 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class PlatformSelectPage extends BasePage{
 
-    public static final By SELECT_PLATFORM=By.xpath("//h1[@class='h4 mb-4']");
+    public static final By SELECT_PLATFORM_LABEL=By.xpath("//h1[@class='h4 mb-4']");
+    public static final By CONTINUE_WITH_CLASSIC  =By.xpath("//span[contains(text(),'Continue with Classic')]");
 
     public PlatformSelectPage(WebDriver driver) {
         super(driver);
     }
 
+    @Step("Select platform")
+    public PlatformSelectPage selectPlatform(){
+        driver.findElement(CONTINUE_WITH_CLASSIC).click();
+        return this;
+    }
+
     @Override
     public boolean isPageOpen() {
-        return isExist(SELECT_PLATFORM);
+        return isExist(SELECT_PLATFORM_LABEL);
     }
 }

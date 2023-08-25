@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +21,7 @@ public abstract class BasePage {
 
     public abstract boolean isPageOpen();
 
+    @Step("Checking for locator presence")
     public boolean isExist(By locator) {
         try {
             return driver.findElement(locator).isDisplayed();
