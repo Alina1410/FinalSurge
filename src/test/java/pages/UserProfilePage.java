@@ -13,7 +13,6 @@ public class UserProfilePage extends BasePage {
     public static final By SETTINGS_BUTTON = By.xpath("//a[contains( text(),'Settings')]");
     public static final By EDIT_PROFILE = By.xpath("//span[contains(text(),'Edit Profile')]");
     public static final By SAVE_EDIT_PROFILE = By.id("saveButtonProfile");
-    public static final By CHANGE_IMAGE = By.id("EditProfilePicOther");
 
 
     public UserProfilePage(WebDriver driver) {
@@ -21,22 +20,24 @@ public class UserProfilePage extends BasePage {
     }
 
 
-
     @Step("Open Profile Page")
-    public UserProfilePage openProfilePage() {
+    public UserProfilePage clickSettingsButton() {
         driver.findElement(SETTINGS_BUTTON).click();
+        log.info("Click sitting button");
         return new UserProfilePage(driver);
     }
 
     @Step("Open edit profile")
     public UserProfilePage openEditProfileForm() {
         driver.findElement(EDIT_PROFILE).click();
+        log.info("Click edit profile button");
         return new UserProfilePage(driver);
     }
 
     @Step("Save profile's changes")
     public UserProfilePage clickSaveButton() {
         driver.findElement(SAVE_EDIT_PROFILE).click();
+        log.info("Click save button in user profile page");
         return new UserProfilePage(driver);
     }
 
@@ -44,7 +45,7 @@ public class UserProfilePage extends BasePage {
     @Override
     public boolean isPageOpen() {
         log.info("Check that Profile page is opened");
-        return isExist(BREADCRUMB_LABEL);
+        return isExist(EDIT_PROFILE);
     }
 
 

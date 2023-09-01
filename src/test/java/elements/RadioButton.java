@@ -9,19 +9,22 @@ import org.openqa.selenium.WebDriver;
 
 public class RadioButton {
 
-    String radioButtonInProfileForm = "//div/label/input[@id='%s']";
+    String radioButtonInProfileForm = "%s";
 
     WebDriver driver;
-    String label;
+    String id;
 
     public RadioButton(WebDriver driver, String label) {
         this.driver = driver;
-        this.label = label;
+        this.id = label;
+
     }
 
     @Step("Click on RadioButton")
-    public void clickOnRadioButton(String gender) {
-        driver.findElement(By.xpath(String.format(radioButtonInProfileForm, this.label))).click();
-        log.info("Find xpath by label and click: " + radioButtonInProfileForm + " " + this.label);
+    public void clickRadioButton(String text) {
+        driver.findElement(By.id(String.format(radioButtonInProfileForm,this.id))).click();
+        log.info("Find id by label and click: " + radioButtonInProfileForm + " " + this.id);
     }
+
+
 }

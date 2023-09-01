@@ -4,29 +4,33 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+
 @Log4j2
 public class DropDown {
 
-    String dropDownInProfileFormForBirthday = "//input[@id='%s']";
-    String dropDownInProfileForm = "//select[@id='%s']";
-    String DROPDOWN_IN_PACE_CALCULATOR = "//select[@id='DistType']/option[text()='%s']";
+    String dropDownLocator = "%s";
+    String optionDropDownInProfileForm = "//option[text()='%s']";
+    String dropDownInPaceCalculator = "//select[@id='DistType']/option[text()='%s']";
+    String dayLocator = "//td[text()='21']";
 
     WebDriver driver;
     String label;
+    String id;
 
     public DropDown(WebDriver driver, String label) {
         this.driver = driver;
-        this.label = label;
+        this.id = label;
     }
 
-    public void selectDropdown(String option) {
-        driver.findElement(By.xpath(String.format(dropDownInProfileForm, this.label))).click();
-        log.info("Click on dropdown with label " + this.label);
-        driver.findElement(By.xpath(String.format(dropDownInProfileForm,this.label))).click();
+    public void selectOption(String option) {
+        driver.findElement(By.id(String.format(dropDownLocator, this.id))).click();
+        log.info("Click on dropdown with id " + this.id);
+        driver.findElement(By.xpath(String.format(optionDropDownInProfileForm, option))).click();
         log.info("Select option " + option);
     }
-    public void selectDropdownInPaceCalculator(String text) {
-        System.out.println(String.format("Writing text '%s' into DropDown with label %s", text, label));
-        driver.findElement(By.xpath(String.format(DROPDOWN_IN_PACE_CALCULATOR, label))).click();
+
+    public void selectDropdownBday(String text) {
+        driver.findElement(By.xpath(String.format(dayLocator, label))).click();
     }
+
 }

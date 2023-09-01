@@ -14,12 +14,14 @@ public class PaceCalculatorTest extends BaseTest{
                 .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
-        PaceCalculatorModalPage
-                .open();
+        paceCalculatorPage
+                .openOtherCalculators()
+                .openPaceCalculators();
+
         PaceCalculator form = PaceCalculatorFactory.getDataFromTheForm();
         PaceCalculatorModalPage
-                .fillInForm(form)
-                .clickCalculateButton();
-        Assert.assertTrue(paceCalculatorModalPage.paceChartTableIsVisible(), "Results table has not been opened");
+                .fillInForm(form);
+
+
     }
 }

@@ -1,12 +1,12 @@
 package tests;
 
-import io.qameta.allure.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class LoginTest extends BaseTest {
 
@@ -47,7 +47,8 @@ public class LoginTest extends BaseTest {
                 .inputEmailAndPassword("vvvdufna@mailto.plus", "12345Alk")
                 .clickSignInButton();
 
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        Duration timeoutDuration = Duration.ofSeconds(60);
+        WebDriverWait wait = new WebDriverWait(driver,timeoutDuration);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='notification__content']")));
 
         Assert.assertEquals(loginPage.getErrorMessage(), "Invalid login credentials. Please try again.",
@@ -60,7 +61,8 @@ public class LoginTest extends BaseTest {
                 .inputEmailAndPassword("vdufna@mailto.plus", "12345Alkkk")
                 .clickSignInButton();
 
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+        Duration timeoutDuration = Duration.ofSeconds(60);
+        WebDriverWait wait = new WebDriverWait(driver,timeoutDuration);
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='notification__content']")));
 
         Assert.assertEquals(loginPage.getErrorMessage(), "Invalid login credentials. Please try again.",

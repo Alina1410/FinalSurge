@@ -13,7 +13,9 @@ import org.openqa.selenium.WebDriver;
 
 public class UserProfileModalPage extends BasePage {
 
-    public static final By FIRST_NAME = By.id("fname");
+    private static final By BIRTHDAY = By.id("BDay");
+    public static final By PROFILE_MODAL_TITLE = By.xpath("//label[text()='Profile Picture']");
+
     public UserProfileModalPage(WebDriver driver) {
         super(driver);
     }
@@ -21,34 +23,34 @@ public class UserProfileModalPage extends BasePage {
     @Step("Edit User profile")
     public UserProfilePage editProfile(UserProfile userProfile) {
         log.info("Add First Name to profile");
-        new Input(driver, "First Name").clear(FIRST_NAME);
-        new Input(driver,"First name").writeInProfileForm(userProfile.getFirstName());
+        new Input(driver, "fname").write(userProfile.getFirstName());
         log.info("Add Last Name to profile");
-        new Input(driver, "Last Name").write(userProfile.getLastName());
+        new Input(driver, "lname").write(userProfile.getLastName());
         log.info("Select gender");
-        new RadioButton(driver, "Gender").clickOnRadioButton(userProfile.getGender());
+        new RadioButton(driver, "male").clickRadioButton(userProfile.getGender());
         log.info("Add Birthday to profile");
-        new Input(driver,"Birthday").write(userProfile.getBirthday());
+        new Input(driver, "BDay").clear(BIRTHDAY);
+        new DropDown(driver, "Birthday").selectDropdownBday(userProfile.getBirthday());
         log.info("Add weight to profile");
         new Input(driver, "Weight").write(userProfile.getWeight());
         log.info("Choose weight measure in profile");
-        new RadioButton(driver, "optionsRadios4").clickOnRadioButton(userProfile.getWeightMeasure());
+        new RadioButton(driver, "optionsRadios3").clickRadioButton(userProfile.getWeightMeasure());
         log.info("Select Country in profile");
-        new DropDown(driver, "Country").selectDropdown(userProfile.getCountry());
+        new DropDown(driver, "Country").selectOption(userProfile.getCountry());
         log.info("Select State/Region in profile");
-        new DropDown(driver, "State/Region").selectDropdown(userProfile.getState());
+        new DropDown(driver, "Region").selectOption(userProfile.getState());
         log.info("Add city to profile");
         new Input(driver, "City").write(userProfile.getCity());
         log.info("Add zip code to profile");
-        new Input(driver, "Zip/Postal Code").write(userProfile.getZip());
+        new Input(driver, "Zip").write(userProfile.getZip());
 
         return new UserProfilePage(driver);
     }
 
 
-
     @Override
     public boolean isPageOpen() {
-        return false;
+        return isExist(PROFILE_MODAL_TITLE);
     }
 }
+

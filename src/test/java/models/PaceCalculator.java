@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PaceCalculator {
     String distance;
+    String distType;
+    String raceDist;
     String hours;
     String minutes;
     String seconds;

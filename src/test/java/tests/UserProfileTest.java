@@ -16,10 +16,11 @@ public class UserProfileTest extends BaseTest {
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
         userProfilePage
-                .openProfilePage()
+                .clickSettingsButton()
                 .openEditProfileForm();
         UserProfile userProfile=UserProfileFactory.getFillingUserProfileForm();
-        userProfileModalPage.editProfile(userProfile);
+        userProfileModalPage.editProfile(userProfile)
+                        .clickSaveButton();
 
         Assert.assertTrue(userProfilePage.isPageOpen(), "Profile page wasn't opened");
     }

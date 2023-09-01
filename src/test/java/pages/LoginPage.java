@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
 
-    public static final By SIGN_IN_TITLE = By.xpath("//h1[contains(text(),'Sign In')]");
     public static final By EMAIL_INPUT = By.xpath("//input[@tabindex='1']");
     public static final By PASSWORD_INPUT = By.xpath("//input[@tabindex='2']");
     public static final By SIGN_IN_BUTTON = By.xpath("//button[@type='submit']");
