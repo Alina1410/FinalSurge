@@ -66,7 +66,6 @@ public class LoginPage extends BasePage {
     @Step("Checking to go to next page")
     @Override
     public boolean isPageOpen() {
-        log.info("Find xpath: " + SIGN_IN_BUTTON);
         return isExist(SIGN_IN_BUTTON);
 
     }

@@ -3,15 +3,12 @@ package models;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
+@Data
 @Builder
-public class PaceCalculator {
-    String distance;
-    String distType;
-    String raceDist;
+public class WorkoutCalculatorIntensity {
+    String selectEvent;
     String hours;
     String minutes;
     String seconds;

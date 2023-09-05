@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 @Log4j2
-
 public class RadioButton {
 
     String radioButtonInProfileForm = "%s";
@@ -17,13 +16,12 @@ public class RadioButton {
     public RadioButton(WebDriver driver, String label) {
         this.driver = driver;
         this.id = label;
-
     }
 
     @Step("Click on RadioButton")
-    public void clickRadioButton(String text) {
+    public void clickRadioButton() {
         driver.findElement(By.id(String.format(radioButtonInProfileForm,this.id))).click();
-        log.info("Find id by label and click: " + radioButtonInProfileForm + " " + this.id);
+        log.info("Click with id" + this.id);
     }
 
 

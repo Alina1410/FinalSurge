@@ -2,14 +2,14 @@ package models;
 import com.github.javafaker.Faker;
 
 public class UserProfileFactory {
-    static Faker faker = new Faker();
 
+    static Faker faker = new Faker();
     public static UserProfile getFillingUserProfileForm() {
         return UserProfile.builder()
                 .firstName(faker.gameOfThrones().character())
                 .lastName(faker.gameOfThrones().character())
                 .gender("Male")
-                .birthday("16")
+                .birthday("11/11/2000")
                 .weight("57")
                 .weightMeasure("lbs")
                 .country("Belarus")

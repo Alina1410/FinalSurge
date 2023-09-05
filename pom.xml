@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <selenium.version>4.11.0</selenium.version>
         <testing.version>7.7.1</testing.version>
-        <bonigarcia.version>5.4.1</bonigarcia.version>
+        <bonigarcia.version>5.5.0</bonigarcia.version>
         <aspectjweaver.version>1.9.6</aspectjweaver.version>
         <lombok.version>1.18.24</lombok.version>
         <javafaker.version>1.0.2</javafaker.version>

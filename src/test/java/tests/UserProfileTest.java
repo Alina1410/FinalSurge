@@ -4,7 +4,6 @@ import models.UserProfile;
 import models.UserProfileFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.UserProfilePage;
 
 public class UserProfileTest extends BaseTest {
 
@@ -15,9 +14,10 @@ public class UserProfileTest extends BaseTest {
                 .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
+        calendarPage.clickSettingsButton();
         userProfilePage
-                .clickSettingsButton()
                 .openEditProfileForm();
+       // userProfilePicturePage.uploadFile();
         UserProfile userProfile=UserProfileFactory.getFillingUserProfileForm();
         userProfileModalPage.editProfile(userProfile)
                         .clickSaveButton();
