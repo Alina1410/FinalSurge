@@ -2,6 +2,7 @@ package tests;
 
 import models.WorkoutCalculatorIntensity;
 import models.WorkoutCalculatorIntensityFactory;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test
@@ -13,8 +14,11 @@ public class WorkoutCalculatorIntensityTest extends BaseTest {
                 .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
-        workoutCalculatorIntensityPage.openCalculators();
+        calendarPage.clickWorkoutCalculators();
         WorkoutCalculatorIntensity workoutCalculatorIntensity= WorkoutCalculatorIntensityFactory.fillingCalculatorData();
-        workoutCalculatorIntensityModalPage.fillInForm(workoutCalculatorIntensity);
+        workoutCalculatorIntensityPage.fillInForm(workoutCalculatorIntensity);
+
+        Assert.assertTrue(workoutCalculatorIntensityPage.titleYourWorkoutPacesIsVisible(),
+                "Форма Pace Calculator заполнена не верно");
     }
 }

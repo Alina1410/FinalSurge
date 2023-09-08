@@ -17,7 +17,6 @@ public class UserProfileFactory {
                 .city(faker.gameOfThrones().city())
                 .zip("222301")
                 .build();
-
     }
 
 }

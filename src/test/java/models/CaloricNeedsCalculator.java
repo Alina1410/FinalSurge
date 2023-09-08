@@ -8,7 +8,6 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class CaloricNeedsCalculator {
-
     String weight;
     String weightType;
     String height;
@@ -17,5 +16,4 @@ public class CaloricNeedsCalculator {
     String gender;
     String runDistance;
     String runDistanceType;
-
 }

@@ -11,14 +11,14 @@ import java.time.Duration;
 public abstract class BasePage {
 
     static WebDriver driver;
+    static WebDriverWait wait;
 
     final String BASE_URL = "https://www.finalsurge.com/";
 
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        Duration timeoutDuration = Duration.ofSeconds(60);
-        WebDriverWait wait = new WebDriverWait(driver,timeoutDuration);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     public abstract boolean isPageOpen();

@@ -1,5 +1,6 @@
 package elements;
 
+import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,11 +20,12 @@ public class DropDown {
         this.id = label;
     }
 
+    @Step("Select an option from the drop-down")
     public void selectOption(String option) {
         driver.findElement(By.id(String.format(dropDownLocator, this.id))).click();
-        log.info("Click on dropdown with id " + this.id);
+        log.info("Click on dropdown with id: " + dropDownLocator);
         driver.findElement(By.xpath(String.format(optionDropDown, option, option, option))).click();
-        log.info("Select option " + option);
+        log.info("Select option on the DropDown by xpath: " + optionDropDown + "and click");
     }
 
 

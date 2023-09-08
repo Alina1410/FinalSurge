@@ -1,6 +1,7 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import models.PaceCalculator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,10 +22,10 @@ public class BaseTest {
     protected UserProfilePicturePage userProfilePicturePage;
     protected CaloricNeedsCalculatorPage caloricNeedsCalculatorPage;
     protected CaloricNeedsCalculatorModalPage caloricNeedsCalculatorModalPage;
+    protected PaceCalculatorModalPage paceCalculatorModalPage;
+    protected PaceCalculatorPage paceCalculatorPage;
     protected WorkoutCalculatorIntensityPage workoutCalculatorIntensityPage;
-    protected WorkoutCalculatorIntensityModalPage workoutCalculatorIntensityModalPage;
     protected WorkoutQuickAddPage workoutQuickAddPage;
-    protected WorkoutQuickAddModalPage workoutQuickAddModalPage;
 
 
     @BeforeMethod
@@ -44,10 +45,11 @@ public class BaseTest {
         caloricNeedsCalculatorPage = new CaloricNeedsCalculatorPage(driver);
         caloricNeedsCalculatorModalPage = new CaloricNeedsCalculatorModalPage(driver);
         workoutCalculatorIntensityPage = new WorkoutCalculatorIntensityPage(driver);
-        workoutCalculatorIntensityModalPage = new WorkoutCalculatorIntensityModalPage(driver);
         calendarPage = new CalendarPage(driver);
         workoutQuickAddPage = new WorkoutQuickAddPage(driver);
-        workoutQuickAddModalPage = new WorkoutQuickAddModalPage(driver);
+        paceCalculatorModalPage=new PaceCalculatorModalPage(driver);
+        paceCalculatorPage=new PaceCalculatorPage(driver);
+
 
 
     }

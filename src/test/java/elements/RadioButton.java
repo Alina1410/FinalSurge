@@ -8,20 +8,30 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class RadioButton {
 
-    String radioButtonInProfileForm = "%s";
+    String radioButton = "%s";
+    String radioButtonInCaloricNeedsCalculator = "//label[contains(.,'%s')]/input";
 
     WebDriver driver;
     String id;
+    String label;
 
     public RadioButton(WebDriver driver, String label) {
         this.driver = driver;
         this.id = label;
+        this.label = label;
+
     }
 
     @Step("Click on RadioButton")
     public void clickRadioButton() {
-        driver.findElement(By.id(String.format(radioButtonInProfileForm,this.id))).click();
-        log.info("Click with id" + this.id);
+        driver.findElement(By.id(String.format(radioButton, this.id))).click();
+        log.info("Click with id: " + radioButton);
+    }
+
+    @Step("Click on RadioButton in Caloric Needs Calculator")
+    public void clickRadioButtonCaloricNeedsCalculator() {
+        driver.findElement(By.xpath(String.format(radioButtonInCaloricNeedsCalculator, this.label))).click();
+        log.info("Click with id: " + radioButtonInCaloricNeedsCalculator);
     }
 
 

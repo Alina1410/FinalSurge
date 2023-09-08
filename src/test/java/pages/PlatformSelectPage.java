@@ -21,6 +21,7 @@ public class PlatformSelectPage extends BasePage {
         log.info("Select platform with xpath: " + CONTINUE_WITH_CLASSIC);
         return this;
     }
+
     @Step("Check that Select platform page is opened")
     @Override
     public boolean isPageOpen() {

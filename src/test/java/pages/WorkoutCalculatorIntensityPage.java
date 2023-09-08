@@ -1,24 +1,49 @@
 package pages;
 
+import elements.Input;
+import elements.RadioButton;
+import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
+import models.WorkoutCalculatorIntensity;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class WorkoutCalculatorIntensityPage extends BasePage{
+@Log4j2
+public class WorkoutCalculatorIntensityPage extends BasePage {
 
-    public static final By WORKOUT_CALCULATORS= By.xpath("//i[@class='icsw16-stop-watch']");
+
+    public static final By YOUR_WORKOUT_PACES_TITLE = By.xpath("//h4[text()='Your Workout Paces']");
+    public static final By CALCULATE_PACES_BUTTON = By.id("saveButtonSettings");
+    public static final By INTENSITY_CALCULATOR_FRAME = By.id("IntensityCalciFrame");
+    public static final By WORKOUT_INTENSITY_CALCULATOR_TITLE = By.xpath("//h4[text()='Running Workout Intensity Calculator']");
 
     public WorkoutCalculatorIntensityPage(WebDriver driver) {
         super(driver);
     }
-
-    public WorkoutCalculatorIntensityPage openCalculators() {
-        driver.findElement(WORKOUT_CALCULATORS).click();
-
-        return this;
+    @Step("Filling Workout Calculator Intensity form")
+    public WorkoutCalculatorIntensityPage fillInForm (WorkoutCalculatorIntensity workoutCalculatorIntensity) {
+        driver.switchTo().frame(driver.findElement(INTENSITY_CALCULATOR_FRAME));
+        log.info("Switched to frame by id: " + INTENSITY_CALCULATOR_FRAME);
+        new RadioButton(driver, "MARATHON").clickRadioButton();
+        new Input(driver, "TimeHH").write(workoutCalculatorIntensity.getHours());
+        new Input(driver, "TimeMM").write(workoutCalculatorIntensity.getMinutes());
+        new Input(driver, "TimeSS").write(workoutCalculatorIntensity.getSeconds());
+        return clickCalculatePaces();
+    }
+    @Step("Click Calculator Paces button")
+    public WorkoutCalculatorIntensityPage clickCalculatePaces() {
+        driver.findElement(CALCULATE_PACES_BUTTON).click();
+        log.info("Click Calculate Paces in Workout Calculator Intensity by id: " + CALCULATE_PACES_BUTTON);
+        return new WorkoutCalculatorIntensityPage(driver);
     }
 
+    public boolean titleYourWorkoutPacesIsVisible() {
+        return driver.findElement(YOUR_WORKOUT_PACES_TITLE).isDisplayed();
+    }
+
+    @Step("PopUp Workout Calculator Intensity is visible")
     @Override
     public boolean isPageOpen() {
-        return false;
+        return isExist(WORKOUT_INTENSITY_CALCULATOR_TITLE);
     }
 }

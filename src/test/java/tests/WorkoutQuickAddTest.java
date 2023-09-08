@@ -16,7 +16,7 @@ public class WorkoutQuickAddTest extends BaseTest {
         platformSelectPage.selectPlatform();
         calendarPage.clickQuickAdd();
         WorkoutQuickAdd workoutQuickAdd = WorkoutQuickAddFactory.fillWorkoutQuickData();
-        workoutQuickAddModalPage.fillInFormQuickWorkout(workoutQuickAdd);
+        workoutQuickAddPage.fillInFormQuickWorkout(workoutQuickAdd);
         workoutQuickAddPage.clickSaveButton();
 
         Assert.assertTrue(workoutQuickAddPage.isPageOpen(), "Workout quick add wasn't opened");
