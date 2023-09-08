@@ -8,7 +8,7 @@ import pages.CaloricNeedsCalculatorModalPage;
 import pages.CaloricNeedsCalculatorPage;
 
 public class CaloricNeedsCalculatorTest extends BaseTest{
-    @Test(description = "Using 'Other Calculators' to calculate pace")
+    @Test(description = "Using Caloric Calculator to calculate caloric needs")
     public void caloricCalculatorTest() {
         loginPage
                 .open()

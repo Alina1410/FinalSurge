@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class PaceCalculatorTest extends BaseTest {
 
-    @Test(description = "Open edit profile page")
+    @Test(description = "Using Pace Calculator to calculate paces")
     public void editProfilePageShouldBeOpened() {
         loginPage
                 .open()

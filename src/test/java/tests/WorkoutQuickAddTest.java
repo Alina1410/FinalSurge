@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 public class WorkoutQuickAddTest extends BaseTest {
 
-    @Test
+    @Test(description = "Filling form Quick Workout")
     public void addQuickWorkout() {
         loginPage
                 .open()

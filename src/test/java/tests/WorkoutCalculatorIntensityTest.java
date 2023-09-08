@@ -5,10 +5,10 @@ import models.WorkoutCalculatorIntensityFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@Test
-public class WorkoutCalculatorIntensityTest extends BaseTest {
 
-    public void workoutCalculatorTest() {
+public class WorkoutCalculatorIntensityTest extends BaseTest {
+@Test(description = "Using Intensity Calculator to calculate paces")
+    public void workoutCalculatorIntensityTest() {
         loginPage
                 .open()
                 .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")

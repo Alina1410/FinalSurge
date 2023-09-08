@@ -24,8 +24,8 @@ public class UserProfileTest extends BaseTest {
         Assert.assertTrue(userProfilePage.isPageOpen(), "Profile page wasn't opened");
     }
 
-    @Test
-    public void addPhohto(){
+    @Test (description = "Update Profile Picture")
+    public void addPhoto(){
         loginPage
                 .open()
                 .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
