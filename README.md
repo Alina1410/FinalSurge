@@ -16,14 +16,11 @@ Testing of [FinalSurge](https://log.finalsurge.com/login.cshtml) website. It is 
 - Java
 - Selenium
 - Steps
-- Builder
 - Maven
 - TestNG
 - Allure Reporting
 - Lombok
-- Log4J2
 - Listeners
-- Faker
 
 
 ## Checklist for [FinalSurge](https://log.finalsurge.com/login.cshtml)
