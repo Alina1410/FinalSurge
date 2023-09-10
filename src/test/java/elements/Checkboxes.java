@@ -8,6 +8,8 @@ import org.openqa.selenium.*;
 @Log4j2
 public class Checkboxes {
 
+    String checkboxesDownLocator = "%s";
+
     WebDriver driver;
     String id;
 
@@ -18,16 +20,8 @@ public class Checkboxes {
 
     @Step("Tick checkbox as {isTrue}")
     public void tickCheckbox(boolean isTrue) {
+        driver.findElement(By.id(String.format(checkboxesDownLocator, this.id))).click();
         log.info("Tick checkbox " + isTrue);
-        if (isTrue) {
-            try {
-                driver.findElement(By.id(id)).click();
-            } catch (ElementClickInterceptedException e) {
-                log.warn(e.getLocalizedMessage());
-                WebElement element = driver.findElement(By.id(id));
-                JavascriptExecutor executor = (JavascriptExecutor) driver;
-                executor.executeScript("arguments[0].click();", element);
-            }
-        }
+
     }
 }

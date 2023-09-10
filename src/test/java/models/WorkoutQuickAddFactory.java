@@ -8,7 +8,7 @@ public class WorkoutQuickAddFactory {
 
     public static WorkoutQuickAdd fillWorkoutQuickData(){
         return WorkoutQuickAdd.builder()
-                .date("12/10/2023")
+                .date("11/10/2023")
                 .time("06:15 AM")
                 .activityType("Run")
                 .workoutName(faker.gameOfThrones().character())

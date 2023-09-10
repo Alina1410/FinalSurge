@@ -2,14 +2,17 @@ package pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import models.UserProfile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 @Log4j2
 public class UserProfilePage extends BasePage {
 
     public static final By EDIT_PROFILE = By.xpath("//span[contains(text(),'Edit Profile')]");
-    public static final By SAVE_EDIT_PROFILE = By.id("saveButtonProfile");
+    String userProfileField="//small[text()='%s:']/..";
+    String birthday="11/11/2000";
 
     public UserProfilePage(WebDriver driver) {
         super(driver);
@@ -22,11 +25,12 @@ public class UserProfilePage extends BasePage {
         return new UserProfilePage(driver);
     }
 
-    @Step("Save profile's changes")
-    public UserProfilePage clickSaveButton() {
-        driver.findElement(SAVE_EDIT_PROFILE).click();
-        log.info("Click save button in user profile page with id: " + SAVE_EDIT_PROFILE);
-        return new UserProfilePage(driver);
+    public String getBirDay() {
+        return "Birthday: " + birthday;}
+
+    public String getFieldValue(String label){
+        String textFromUserProfileField=driver.findElement(By.xpath(String.format(userProfileField,label))).getText();
+        return textFromUserProfileField;
     }
 
     @Step("Check that Profile page is opened")

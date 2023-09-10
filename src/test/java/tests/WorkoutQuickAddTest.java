@@ -2,8 +2,9 @@ package tests;
 
 import models.WorkoutQuickAdd;
 import models.WorkoutQuickAddFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.*;
 
 public class WorkoutQuickAddTest extends BaseTest {
 
@@ -17,9 +18,9 @@ public class WorkoutQuickAddTest extends BaseTest {
         calendarPage.clickQuickAdd();
         WorkoutQuickAdd workoutQuickAdd = WorkoutQuickAddFactory.fillWorkoutQuickData();
         workoutQuickAddPage.fillInFormQuickWorkout(workoutQuickAdd);
-        workoutQuickAddPage.clickSaveButton();
 
-        Assert.assertTrue(workoutQuickAddPage.isPageOpen(), "Workout quick add wasn't opened");
+        assertTrue(calendarPage.addedQuickWorkoutIsVisible(),
+                "Быстрая тренировка не добавлена");
 
     }
 }
