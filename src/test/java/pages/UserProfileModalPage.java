@@ -32,6 +32,7 @@ public class UserProfileModalPage extends BasePage {
         new DropDown(driver, "Region").selectOption(userProfile.getState());
         new Input(driver, "City").write(userProfile.getCity());
         new Input(driver, "Zip").write(userProfile.getZip());
+        log.info("Edit data " + userProfile);
 
         return saveProfileChanges();
     }
@@ -41,6 +42,7 @@ public class UserProfileModalPage extends BasePage {
     public  UserProfileModalPage saveProfileChanges() {
         WebElement button = driver.findElement(SAVE_EDIT_PROFILE);
         clickElement(button);
+        log.info("Click Save Edit Profile button By id: " + SAVE_EDIT_PROFILE);
         return this;
     }
 

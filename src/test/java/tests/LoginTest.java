@@ -1,12 +1,12 @@
 package tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import java.time.Duration;
+import static org.testng.Assert.*;
+
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import tests.base.BaseTest;
+import tests.base.TestListener;
 
 public class LoginTest extends BaseTest {
 
@@ -15,9 +15,8 @@ public class LoginTest extends BaseTest {
         loginPage.open()
                 .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
                 .clickSignInButton();
-        boolean isPlatformSelectPageOpen = platformSelectPage.isPageOpen();
 
-        Assert.assertTrue(isPlatformSelectPageOpen);
+        assertTrue(platformSelectPage.labelSelectPlatformIsVisible(),"Пользователь не авторизован");
 
     }
 
@@ -27,7 +26,7 @@ public class LoginTest extends BaseTest {
                 .inputEmailAndPassword("vdufna@mailto.plus", "")
                 .clickSignInButton();
 
-        Assert.assertEquals(loginPage.getPasswordErrorMessage(), "Password is required",
+        assertEquals(loginPage.getPasswordErrorMessage(), "Password is required",
                 "Текст сообщения неверный или отсутствует");
     }
 
@@ -37,7 +36,7 @@ public class LoginTest extends BaseTest {
                 .inputEmailAndPassword("", "12345Alk")
                 .clickSignInButton();
 
-        Assert.assertEquals(loginPage.getEmailErrorMessage(), "Email is required",
+        assertEquals(loginPage.getEmailErrorMessage(), "Email is required",
                 "Текст сообщения неверный или отсутствует");
     }
 
@@ -47,11 +46,7 @@ public class LoginTest extends BaseTest {
                 .inputEmailAndPassword("vvvdufna@mailto.plus", "12345Alk")
                 .clickSignInButton();
 
-        Duration timeoutDuration = Duration.ofSeconds(60);
-        WebDriverWait wait = new WebDriverWait(driver,timeoutDuration);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='notification__content']")));
-
-        Assert.assertEquals(loginPage.getErrorMessage(), "Invalid login credentials. Please try again.",
+        assertEquals(loginPage.getErrorMessage(), "Invalid login credentials. Please try again.",
                 "Текст сообщения неверный или отсутствует");
     }
 
@@ -61,11 +56,7 @@ public class LoginTest extends BaseTest {
                 .inputEmailAndPassword("vdufna@mailto.plus", "12345Alkkk")
                 .clickSignInButton();
 
-        Duration timeoutDuration = Duration.ofSeconds(60);
-        WebDriverWait wait = new WebDriverWait(driver,timeoutDuration);
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='notification__content']")));
-
-        Assert.assertEquals(loginPage.getErrorMessage(), "Invalid login credentials. Please try again.",
+        assertEquals(loginPage.getErrorMessage(), "Invalid login credentials. Please try again.",
                 "Текст сообщения неверный или отсутствует");
     }
 

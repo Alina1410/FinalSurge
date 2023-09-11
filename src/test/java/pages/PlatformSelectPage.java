@@ -22,6 +22,11 @@ public class PlatformSelectPage extends BasePage {
         return this;
     }
 
+    @Step("Visible label Select Platform")
+    public boolean labelSelectPlatformIsVisible() {
+        return driver.findElement(SELECT_PLATFORM_LABEL).isDisplayed();
+    }
+
     @Step("Check that Select platform page is opened")
     @Override
     public boolean isPageOpen() {

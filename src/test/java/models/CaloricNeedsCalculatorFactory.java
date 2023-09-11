@@ -12,7 +12,7 @@ public class CaloricNeedsCalculatorFactory {
                 .weightType("kg")
                 .height(faker.random().nextInt(150,200).toString())
                 .heightType("centimeters")
-                .age(faker.random().nextInt(18,65).toString())
+                .age("28")
                 .gender("female")
                 .runDistance(faker.random().nextInt(1,50).toString())
                 .runDistanceType("kilometers")

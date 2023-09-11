@@ -2,10 +2,9 @@ package tests;
 
 import models.PaceCalculator;
 import models.PaceCalculatorFactory;
-import models.UserProfile;
-import models.UserProfileFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
 
 public class PaceCalculatorTest extends BaseTest {
 

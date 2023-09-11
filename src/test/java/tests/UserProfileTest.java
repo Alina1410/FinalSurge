@@ -2,14 +2,8 @@ package tests;
 
 import models.UserProfile;
 import models.UserProfileFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
+import tests.base.BaseTest;
 
 import static org.testng.Assert.*;
 
@@ -31,7 +25,8 @@ public class UserProfileTest extends BaseTest {
         userProfileModalPage
                 .editProfile(userProfile);
 
-        assertEquals(userProfilePage.getBirDay(),userProfilePage.getFieldValue("Birthday"), "Профиль не отредактирован");
+        assertEquals(userProfilePage.getBirDay(),userProfilePage.getFieldValue("Birthday"),
+                "Профиль не отредактирован");
 
     }
 

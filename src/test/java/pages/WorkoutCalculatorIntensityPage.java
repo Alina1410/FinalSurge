@@ -28,6 +28,7 @@ public class WorkoutCalculatorIntensityPage extends BasePage {
         new Input(driver, "TimeHH").write(workoutCalculatorIntensity.getHours());
         new Input(driver, "TimeMM").write(workoutCalculatorIntensity.getMinutes());
         new Input(driver, "TimeSS").write(workoutCalculatorIntensity.getSeconds());
+        log.info("Fill in the data " + workoutCalculatorIntensity);
         return clickCalculatePaces();
     }
     @Step("Click Calculator Paces button")
@@ -36,12 +37,12 @@ public class WorkoutCalculatorIntensityPage extends BasePage {
         log.info("Click Calculate Paces in Workout Calculator Intensity by id: " + CALCULATE_PACES_BUTTON);
         return new WorkoutCalculatorIntensityPage(driver);
     }
-
+    @Step("Visible Workout Calculato rIntensity results")
     public boolean titleYourWorkoutPacesIsVisible() {
         return driver.findElement(YOUR_WORKOUT_PACES_TITLE).isDisplayed();
     }
 
-    @Step("PopUp Workout Calculator Intensity is visible")
+    @Step("Frame Workout Calculator Intensity is visible")
     @Override
     public boolean isPageOpen() {
         return isExist(WORKOUT_INTENSITY_CALCULATOR_TITLE);

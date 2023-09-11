@@ -30,6 +30,7 @@ public class CaloricNeedsCalculatorModalPage extends BasePage{
         new RadioButton(driver, "female").clickRadioButtonCaloricNeedsCalculator();
         new Input(driver,"RunDist").write(caloricNeedsCalculator.getRunDistance());
         new RadioButton(driver, "kilometers").clickRadioButtonCaloricNeedsCalculator();
+        log.info("Fill in the data " + caloricNeedsCalculator);
         return clickSaveButton() ;
     }
     @Step("Click save button in Caloric Needs Calculator")

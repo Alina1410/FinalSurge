@@ -3,6 +3,7 @@ package tests;
 import models.WorkoutQuickAdd;
 import models.WorkoutQuickAddFactory;
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
 
 import static org.testng.Assert.*;
 

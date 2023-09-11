@@ -3,7 +3,6 @@ package pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -29,6 +28,7 @@ public class CaloricNeedsCalculatorPage extends BasePage {
         return new PaceCalculatorModalPage(driver);
     }
 
+    @Step("Visible Caloric Needs Calculator results")
     public boolean titleCaloricNeedsCalculatorIsVisible() {
         return driver.findElement(RESULTS_CALORIC_NEEDS_CALCULATOR).isDisplayed();
     }

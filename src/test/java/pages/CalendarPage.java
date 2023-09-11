@@ -13,7 +13,7 @@ public class CalendarPage extends BasePage {
     public static final By QUICK_ADD_BUTTON = By.id("QuickAddToggle");
     public static final By OTHER_CALCULATORS_BUTTON = By.xpath("//i[@class='icsw16-calculator']");
     public static final By WORKOUT_CALCULATORS = By.xpath("//i[@class='icsw16-stop-watch']");
-    String addedQuickWorkout="//a[@class='dropdown-toggle detailslink']";
+    String addedQuickWorkout = "//a[@class='dropdown-toggle detailslink']";
 
 
     public CalendarPage(WebDriver driver) {
@@ -34,7 +34,9 @@ public class CalendarPage extends BasePage {
         return new CalendarPage(driver);
     }
 
+    @Step("The added quick workout is visible in the calendar")
     public boolean addedQuickWorkoutIsVisible() {
+        log.info("Check that the added quick workout is visible in the calendar by xpath");
         return driver.findElement(By.xpath(addedQuickWorkout)).isDisplayed();
     }
 

@@ -4,10 +4,9 @@ import models.CaloricNeedsCalculator;
 import models.CaloricNeedsCalculatorFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CaloricNeedsCalculatorModalPage;
-import pages.CaloricNeedsCalculatorPage;
+import tests.base.BaseTest;
 
-public class CaloricNeedsCalculatorTest extends BaseTest{
+public class CaloricNeedsCalculatorTest extends BaseTest {
     @Test(description = "Using Caloric Calculator to calculate caloric needs")
     public void caloricCalculatorTest() {
         loginPage

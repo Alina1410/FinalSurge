@@ -42,6 +42,7 @@ public class WorkoutQuickAddPage extends BasePage {
         new DropDown(driver, "PerEffort").selectOption(workoutQuickAdd.getPerceivedEffort());
         new TextArea(driver, "PostDesc").write(workoutQuickAdd.getPostDesc());
         new Checkboxes(driver, "SaveLibrary").tickCheckbox(workoutQuickAdd.isSaveLibrary());
+        log.info("Fill in the data " + workoutQuickAdd);
         return clickSaveButton();
     }
 

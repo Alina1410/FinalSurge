@@ -25,6 +25,7 @@ public class PaceCalculatorModalPage extends BasePage {
         new Input(driver,"TimeHH").write(paceCalculator.getTimeInHours());
         new Input(driver,"TimeMM").write(paceCalculator.getTimeInHours());
         new Input(driver,"TimeSS").write(paceCalculator.getTimeInHours());
+        log.info("Fill in the data " + paceCalculator);
         return clickCalculatePacesButton();
     }
 

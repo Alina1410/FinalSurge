@@ -4,6 +4,7 @@ import models.WorkoutCalculatorIntensity;
 import models.WorkoutCalculatorIntensityFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
 
 
 public class WorkoutCalculatorIntensityTest extends BaseTest {

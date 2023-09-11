@@ -6,10 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
-import java.time.Duration;
 
 @Log4j2
 public class UserProfilePicturePage extends BasePage {
@@ -22,6 +20,7 @@ public class UserProfilePicturePage extends BasePage {
     public static final By REMOVE_IMAGE_BUTTON = By.id("del-pic");
     public static final By SUBMIT_DELETE_PHOTO_BUTTON = By.xpath("//a[@class='btn btn-primary']");
     String srcAttributeNotPicture = "https://log.finalsurge.com/img/default-profile60x60.png";
+    String userProfilePictureLocated = "//img[@class='img-avatar']";
 
     public UserProfilePicturePage(WebDriver driver) {
         super(driver);
@@ -41,26 +40,30 @@ public class UserProfilePicturePage extends BasePage {
         driver.switchTo().defaultContent();
         driver.findElement(UPLOAD_BUTTON).click();
         log.info("Click Upload button by id: " + UPLOAD_BUTTON);
-
     }
 
     @Step("Remove image in User Profile ")
     public UserProfilePicturePage removeImage() {
         driver.findElement(REMOVE_IMAGE_BUTTON).click();
+        log.info("Click Remove Image button by id: " + REMOVE_IMAGE_BUTTON);
         wait.until(ExpectedConditions.elementToBeClickable(SUBMIT_DELETE_PHOTO_BUTTON)).click();
+        log.info("Confirm deletion of the photo by clicking the button by xpath: " + SUBMIT_DELETE_PHOTO_BUTTON);
         return this;
     }
 
+    @Step("Get attribute value without picture")
     public String getSrcNotPicture() {
-        return srcAttributeNotPicture;}
-
-    public String getAttributeProfilePicture() {
-        WebElement profilePicture = driver.findElement(By.xpath("//img[@class='img-avatar']"));
-        String srcAttribute = profilePicture.getAttribute("src");
-        return srcAttribute;
-
+        return srcAttributeNotPicture;
     }
 
+    @Step("Get attribute value with picture")
+    public String getAttributeProfilePicture() {
+        WebElement profilePicture = driver.findElement(By.xpath(userProfilePictureLocated));
+        log.info("Find an element by xpath: " + userProfilePictureLocated);
+        String srcAttribute = profilePicture.getAttribute("src");
+        log.info("Get attribute src");
+        return srcAttribute;
+    }
 
     @Step("Check that update image is opened")
     @Override
