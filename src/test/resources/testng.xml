@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Test suite" parallel="tests">
+    <test name="Stream 1">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="Stream 2">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="tests.WorkoutQuickAddTest"/>
+        </classes>
+    </test> <!-- Test -->
+
+</suite>
+
