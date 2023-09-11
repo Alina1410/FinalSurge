@@ -2,10 +2,8 @@ package pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
-import models.UserProfile;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 @Log4j2
 public class UserProfilePage extends BasePage {
@@ -23,7 +21,6 @@ public class UserProfilePage extends BasePage {
         log.info("Click edit profile button with xpath:" + EDIT_PROFILE);
         return new UserProfilePage(driver);
     }
-
 
 
     @Step("Get text from User Profile field")

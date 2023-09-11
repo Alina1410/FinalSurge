@@ -3,19 +3,22 @@
 <suite thread-count="3" name="Test suite" parallel="tests">
     <test name="Stream 1">
         <classes>
-            <class name="tests.WorkoutQuickAddTest"/>
+            <class name="tests.LoginTest"/>
+            <class name="tests.WorkoutCalculatorIntensityTest"/>
         </classes>
     </test> <!-- Test -->
 
     <test name="Stream 2">
         <classes>
-            <class name="tests.PaceCalculatorTest"/>
+            <class name="tests.UserProfileTest"/>
         </classes>
     </test> <!-- Test -->
 
     <test name="Stream 3">
         <classes>
             <class name="tests.CaloricNeedsCalculatorTest"/>
+            <class name="tests.PaceCalculatorTest"/>
+            <class name="tests.WorkoutQuickAddTest"/>
         </classes>
     </test> <!-- Test -->
 </suite>

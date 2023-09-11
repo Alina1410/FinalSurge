@@ -7,8 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
-
-
 public class LoginPage extends BasePage {
 
     public static final By EMAIL_INPUT = By.xpath("//input[@tabindex='1']");
@@ -26,16 +24,16 @@ public class LoginPage extends BasePage {
     @Step("Open the Login Page")
     public LoginPage open() {
         driver.get(BASE_URL + "login");
-        log.info("Open Login page with URL: " + BASE_URL + "login");
+        log.info("Open Login page with URL + login");
         return this;
     }
 
     @Step("Enter Username or Email: '{email}' and Password: '{password}'")
     public LoginPage inputEmailAndPassword(String email, String password) {
         driver.findElement(EMAIL_INPUT).sendKeys(email);
-        log.info("Input the email in the field: " + email);
+        log.info("Input the email in the field");
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
-        log.info("Input password in the field: " + password);
+        log.info("Input password in the field");
         return this;
     }
 
@@ -60,7 +58,7 @@ public class LoginPage extends BasePage {
 
     @Step("Get an error message")
     public String getErrorMessage() {
-        String errorMessage=wait.until(ExpectedConditions.visibilityOfElementLocated(ERROR_MESSAGE)).getText();
+        String errorMessage = wait.until(ExpectedConditions.visibilityOfElementLocated(ERROR_MESSAGE)).getText();
         log.info("Take the error message : " + errorMessage);
         return errorMessage;
 

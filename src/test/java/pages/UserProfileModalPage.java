@@ -39,9 +39,9 @@ public class UserProfileModalPage extends BasePage {
 
 
     @Step("Save profile's changes")
-    public  UserProfileModalPage saveProfileChanges() {
+    public UserProfileModalPage saveProfileChanges() {
         WebElement button = driver.findElement(SAVE_EDIT_PROFILE);
-        clickElement(button);
+        clickElementByJavascript(button);
         log.info("Click Save Edit Profile button By id: " + SAVE_EDIT_PROFILE);
         return this;
     }

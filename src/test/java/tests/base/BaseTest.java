@@ -1,17 +1,15 @@
 package tests.base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.*;
 import pages.*;
 import utils.PropertyReader;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+
 
 @Listeners(TestListener.class)
 public class BaseTest {
@@ -31,16 +29,19 @@ public class BaseTest {
     protected WorkoutQuickAddPage workoutQuickAddPage;
     protected String email, password;
 
-    @Step("Setting up and opening the browser")
-    @BeforeMethod
+
+    @BeforeMethod(description = "Setting up and opening the browser")
     public void setUp() {
 
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        options.addArguments("-headless");
+
+        driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
         email = System.getenv().getOrDefault("FINAL_SURGE-EMAIL", PropertyReader.getProperty("finalsurge.email"));
         password = System.getenv().getOrDefault("FINAL_SURGE-PASSWORD", PropertyReader.getProperty("finalsurge.password"));
         loginPage = new LoginPage(driver);
@@ -59,8 +60,8 @@ public class BaseTest {
 
     }
 
-    @Step("Closing the browser")
-    @AfterMethod(alwaysRun = true)
+
+    @AfterMethod(alwaysRun = true, description = "Closing the browser")
     public void tearDown() {
         driver.quit();
     }

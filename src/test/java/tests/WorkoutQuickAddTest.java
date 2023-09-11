@@ -13,7 +13,7 @@ public class WorkoutQuickAddTest extends BaseTest {
     public void addQuickWorkout() {
         loginPage
                 .open()
-                .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
+                .inputEmailAndPassword(email, password)
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
         calendarPage.clickQuickAdd();

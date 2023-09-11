@@ -17,8 +17,11 @@ public class PaceCalculatorPage extends BasePage{
 
     @Step("Visible Pace Calculator results")
     public boolean titlePaceChartIsVisible() {
-        return driver.findElement(RESULTS_PACE_CHART_LABEL).isDisplayed();
+        boolean titlePaceCalculatorResultsIsVisible = driver.findElement(RESULTS_PACE_CHART_LABEL).isDisplayed();
+        log.info("Make sure that the results of the calorie requirement calculation are visible on the page");
+        return titlePaceCalculatorResultsIsVisible;
     }
+
 
     @Step("Frame Pace Calculator is visible")
     @Override

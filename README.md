@@ -39,6 +39,7 @@ Testing of [FinalSurge](https://log.finalsurge.com/login.cshtml) website. It is 
 
 - Edit User Profile
 - Update Profile Picture
+- Delete Profile Picture
 
 #### **_- Other Calculators page:_**
 

@@ -30,7 +30,9 @@ public class CaloricNeedsCalculatorPage extends BasePage {
 
     @Step("Visible Caloric Needs Calculator results")
     public boolean titleCaloricNeedsCalculatorIsVisible() {
-        return driver.findElement(RESULTS_CALORIC_NEEDS_CALCULATOR).isDisplayed();
+        boolean titleIsVisible = driver.findElement(RESULTS_CALORIC_NEEDS_CALCULATOR).isDisplayed();
+        log.info("Make sure that the results of the calorie requirement calculation are visible on the page");
+        return titleIsVisible;
     }
 
     @Step("Check that Caloric Needs Calculators page is opened")

@@ -21,6 +21,6 @@ public class TextArea {
     @Step("Write the text in TextArea")
     public void write(String text) {
         driver.findElement(By.id(String.format(textAreaLocator, this.id))).sendKeys(text);
-        log.info("Write " + text + " into Text Area with id " + textAreaLocator);
+        log.info("Write " + text + " into Text Area with id " + this.id);
     }
 }

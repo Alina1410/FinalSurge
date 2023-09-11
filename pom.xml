@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>Qase_project</artifactId>
+    <artifactId>FinalSurge</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -19,6 +19,7 @@
         <javafaker.version>1.0.2</javafaker.version>
         <allure-testng.version>2.13.9</allure-testng.version>
         <log4j-core.version>2.20.0</log4j-core.version>
+        <jackson-dataformat-yaml.version>2.12.3</jackson-dataformat-yaml.version>
     </properties>
 
     <dependencies>
@@ -40,6 +41,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${bonigarcia.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson-dataformat-yaml.version}</version>
         </dependency>
 
 
@@ -81,6 +88,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
+                    <forkCount>3</forkCount>
+                    <reuseForks>true</reuseForks>
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar -Xmx256m
                     </argLine>

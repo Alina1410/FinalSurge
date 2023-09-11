@@ -3,11 +3,8 @@ package tests;
 
 import static org.testng.Assert.*;
 
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
-import utils.PropertyReader;
-import tests.base.TestListener;
 
 public class LoginTest extends BaseTest {
 
@@ -17,14 +14,14 @@ public class LoginTest extends BaseTest {
                 .inputEmailAndPassword(email, password)
                 .clickSignInButton();
 
-        assertTrue(platformSelectPage.labelSelectPlatformIsVisible(),"Пользователь не авторизован");
+        assertTrue(platformSelectPage.isPageOpen(), "Пользователь не авторизован");
 
     }
 
     @Test(description = "leave the password field blank")
     public void blankPasswordField() {
         loginPage.open()
-                .inputEmailAndPassword("vdufna@mailto.plus", "")
+                .inputEmailAndPassword(email, "")
                 .clickSignInButton();
 
         assertEquals(loginPage.getPasswordErrorMessage(), "Password is required",
@@ -34,7 +31,7 @@ public class LoginTest extends BaseTest {
     @Test(description = "leave the email field blank")
     public void blankEmailField() {
         loginPage.open()
-                .inputEmailAndPassword("", "12345Alk")
+                .inputEmailAndPassword("", password)
                 .clickSignInButton();
 
         assertEquals(loginPage.getEmailErrorMessage(), "Email is required",
@@ -44,7 +41,7 @@ public class LoginTest extends BaseTest {
     @Test(description = "invalid email")
     public void invalidEmail() {
         loginPage.open()
-                .inputEmailAndPassword("vvvdufna@mailto.plus", "12345Alk")
+                .inputEmailAndPassword("vvvdufna@mailto.plus", password)
                 .clickSignInButton();
 
         assertEquals(loginPage.getErrorMessage(), "Invalid login credentials. Please try again.",
@@ -54,13 +51,12 @@ public class LoginTest extends BaseTest {
     @Test(description = "invalid password")
     public void invalidPassword() {
         loginPage.open()
-                .inputEmailAndPassword("vdufna@mailto.plus", "12345Alkkk")
+                .inputEmailAndPassword(email, "12345Alkkk")
                 .clickSignInButton();
 
         assertEquals(loginPage.getErrorMessage(), "Invalid login credentials. Please try again.",
                 "Текст сообщения неверный или отсутствует");
     }
-
 
 
 }

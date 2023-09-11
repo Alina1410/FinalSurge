@@ -53,7 +53,9 @@ public class UserProfilePicturePage extends BasePage {
 
     @Step("Get attribute value without picture")
     public String getSrcNotPicture() {
-        return srcAttributeNotPicture;
+        String srcAttribute = srcAttributeNotPicture;
+        log.info("Get value attribute src without a picture");
+        return srcAttribute;
     }
 
     @Step("Get attribute value with picture")

@@ -18,7 +18,7 @@ public class Input {
 
     public void write(String text) {
         driver.findElement(By.id(String.format(inputLocator, this.id))).clear();
-        log.info("Clear input with id  " + inputLocator);
+        log.info("Clear input with id  " + this.id);
         driver.findElement(By.id(String.format(inputLocator, this.id))).sendKeys(text);
         log.info("Write into input with label: " + id + "text: " + text);
     }
@@ -29,7 +29,7 @@ public class Input {
         Actions action = new Actions(driver);
         action.doubleClick(driver.findElement(By.id(String.format(inputLocator, this.id)))).perform();
         driver.findElement(By.id(String.format(inputLocator, this.id))).sendKeys(text);
-        log.info("Write into input BDay by id: " + id + "text: " + text);
+        log.info("Write into input BDay by id: " + this.id + "text: " + text);
 
     }
 

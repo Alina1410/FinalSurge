@@ -2,9 +2,10 @@ package tests;
 
 import models.PaceCalculator;
 import models.PaceCalculatorFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
+
+import static org.testng.Assert.*;
 
 public class PaceCalculatorTest extends BaseTest {
 
@@ -12,7 +13,7 @@ public class PaceCalculatorTest extends BaseTest {
     public void editProfilePageShouldBeOpened() {
         loginPage
                 .open()
-                .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
+                .inputEmailAndPassword(email, password)
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
         calendarPage.clickOtherCalculators();
@@ -20,7 +21,7 @@ public class PaceCalculatorTest extends BaseTest {
         PaceCalculator paceCalculator = PaceCalculatorFactory.fillingPaceCalculatorForm();
         paceCalculatorModalPage.fillInForm(paceCalculator);
 
-        Assert.assertTrue(paceCalculatorPage.titlePaceChartIsVisible(),
+        assertTrue(paceCalculatorPage.titlePaceChartIsVisible(),
                 "Форма Pace Calculator заполнена не верно");
     }
 

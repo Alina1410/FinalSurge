@@ -23,7 +23,7 @@ public class CalendarPage extends BasePage {
     @Step("Open Profile Page")
     public UserProfilePage clickSettingsButton() {
         driver.findElement(SETTINGS_BUTTON).click();
-        log.info("Click sitting button by id: " + SETTINGS_BUTTON);
+        log.info("Click sitting button by xpath: " + SETTINGS_BUTTON);
         return new UserProfilePage(driver);
     }
 

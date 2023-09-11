@@ -19,24 +19,24 @@ public class PaceCalculatorModalPage extends BasePage {
     }
 
     @Step("Filling Pace Calculator form")
-    public PaceCalculatorModalPage fillInForm (PaceCalculator paceCalculator) {
+    public PaceCalculatorModalPage fillInForm(PaceCalculator paceCalculator) {
         new Input(driver, "RunDist").write(paceCalculator.getDistance());
         new DropDown(driver, "DistType").selectOption(paceCalculator.getDistType());
-        new Input(driver,"TimeHH").write(paceCalculator.getTimeInHours());
-        new Input(driver,"TimeMM").write(paceCalculator.getTimeInHours());
-        new Input(driver,"TimeSS").write(paceCalculator.getTimeInHours());
+        new Input(driver, "TimeHH").write(paceCalculator.getTimeInHours());
+        new Input(driver, "TimeMM").write(paceCalculator.getTimeInHours());
+        new Input(driver, "TimeSS").write(paceCalculator.getTimeInHours());
         log.info("Fill in the data " + paceCalculator);
         return clickCalculatePacesButton();
     }
 
     @Step("Click Calculator Paces button")
-    public PaceCalculatorModalPage clickCalculatePacesButton(){
+    public PaceCalculatorModalPage clickCalculatePacesButton() {
         driver.findElement(CALCULATE_PACES_BUTTON).click();
         log.info("Click Calculator Paces button by xpath: " + CALCULATE_PACES_BUTTON);
         return new PaceCalculatorModalPage(driver);
     }
 
-    @Step("PopUp Pace Calculator is visible")
+    @Step("Frame Pace Calculator is visible")
     @Override
     public boolean isPageOpen() {
         return isExist(PACE_CALCULATOR_TITLE);

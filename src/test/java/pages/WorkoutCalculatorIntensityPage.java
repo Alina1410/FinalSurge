@@ -20,8 +20,9 @@ public class WorkoutCalculatorIntensityPage extends BasePage {
     public WorkoutCalculatorIntensityPage(WebDriver driver) {
         super(driver);
     }
+
     @Step("Filling Workout Calculator Intensity form")
-    public WorkoutCalculatorIntensityPage fillInForm (WorkoutCalculatorIntensity workoutCalculatorIntensity) {
+    public WorkoutCalculatorIntensityPage fillInForm(WorkoutCalculatorIntensity workoutCalculatorIntensity) {
         driver.switchTo().frame(driver.findElement(INTENSITY_CALCULATOR_FRAME));
         log.info("Switched to frame by id: " + INTENSITY_CALCULATOR_FRAME);
         new RadioButton(driver, "MARATHON").clickRadioButton();
@@ -31,16 +32,21 @@ public class WorkoutCalculatorIntensityPage extends BasePage {
         log.info("Fill in the data " + workoutCalculatorIntensity);
         return clickCalculatePaces();
     }
+
     @Step("Click Calculator Paces button")
     public WorkoutCalculatorIntensityPage clickCalculatePaces() {
         driver.findElement(CALCULATE_PACES_BUTTON).click();
         log.info("Click Calculate Paces in Workout Calculator Intensity by id: " + CALCULATE_PACES_BUTTON);
         return new WorkoutCalculatorIntensityPage(driver);
     }
-    @Step("Visible Workout Calculato rIntensity results")
+
+    @Step("Visible Workout Calculator Intensity results")
     public boolean titleYourWorkoutPacesIsVisible() {
-        return driver.findElement(YOUR_WORKOUT_PACES_TITLE).isDisplayed();
+        boolean titleCalculatorIntensityResultsIsVisible = driver.findElement(YOUR_WORKOUT_PACES_TITLE).isDisplayed();
+        log.info("Make sure that the results of the Workout Intensity calculation are visible on the page");
+        return titleCalculatorIntensityResultsIsVisible;
     }
+
 
     @Step("Frame Workout Calculator Intensity is visible")
     @Override

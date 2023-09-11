@@ -15,7 +15,7 @@ public class UserProfileTest extends BaseTest {
     public void editProfilePageShouldBeOpened() {
         loginPage
                 .open()
-                .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
+                .inputEmailAndPassword(email, password)
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
         calendarPage.clickSettingsButton();
@@ -25,7 +25,7 @@ public class UserProfileTest extends BaseTest {
         userProfileModalPage
                 .editProfile(userProfile);
 
-        assertEquals(userProfilePage.getFieldValue("City"),userProfile.getCity(),
+        assertEquals(userProfilePage.getFieldValue("City"), userProfile.getCity(),
                 "Профиль не отредактирован");
 
     }
@@ -34,7 +34,7 @@ public class UserProfileTest extends BaseTest {
     public void addPicture() {
         loginPage
                 .open()
-                .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
+                .inputEmailAndPassword(email, password)
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
         calendarPage.clickSettingsButton();
@@ -43,7 +43,7 @@ public class UserProfileTest extends BaseTest {
         userProfileModalPage.saveProfileChanges();
 
         assertNotEquals(userProfilePicturePage.getSrcNotPicture(),
-                userProfilePicturePage.getAttributeProfilePicture(),"Фото в профиль не добавлено");
+                userProfilePicturePage.getAttributeProfilePicture(), "Фото в профиль не добавлено");
 
 
     }
@@ -52,7 +52,7 @@ public class UserProfileTest extends BaseTest {
     public void deletePicture() {
         loginPage
                 .open()
-                .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
+                .inputEmailAndPassword(email, password)
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
         calendarPage.clickSettingsButton();
@@ -62,7 +62,7 @@ public class UserProfileTest extends BaseTest {
         userProfileModalPage.saveProfileChanges();
 
         assertEquals(userProfilePicturePage.getSrcNotPicture(),
-                userProfilePicturePage.getAttributeProfilePicture(),"Фото из профиля не удалено");
+                userProfilePicturePage.getAttributeProfilePicture(), "Фото из профиля не удалено");
 
 
     }

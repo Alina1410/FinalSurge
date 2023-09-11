@@ -19,19 +19,18 @@ public class RadioButton {
         this.driver = driver;
         this.id = label;
         this.label = label;
-
     }
 
     @Step("Click on RadioButton")
     public void clickRadioButton() {
         driver.findElement(By.id(String.format(radioButton, this.id))).click();
-        log.info("Click with id: " + radioButton);
+        log.info("Click with id: " + this.id);
     }
 
     @Step("Click on RadioButton in Caloric Needs Calculator")
     public void clickRadioButtonCaloricNeedsCalculator() {
         driver.findElement(By.xpath(String.format(radioButtonInCaloricNeedsCalculator, this.label))).click();
-        log.info("Click with id: " + radioButtonInCaloricNeedsCalculator);
+        log.info("Click with id: " + this.label);
     }
 
 
