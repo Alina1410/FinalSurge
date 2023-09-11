@@ -12,7 +12,6 @@ public class UserProfilePage extends BasePage {
 
     public static final By EDIT_PROFILE = By.xpath("//span[contains(text(),'Edit Profile')]");
     String userProfileField = "//small[text()='%s:']/..";
-    String birthday = "11/11/2000";
 
     public UserProfilePage(WebDriver driver) {
         super(driver);
@@ -25,16 +24,13 @@ public class UserProfilePage extends BasePage {
         return new UserProfilePage(driver);
     }
 
-    @Step("Get value birthday")
-    public String getBirDay() {
-        return "Birthday: " + birthday;
-    }
+
 
     @Step("Get text from User Profile field")
     public String getFieldValue(String label) {
         String textFromUserProfileField = driver.findElement(By.xpath(String.format(userProfileField, label))).getText();
         log.info("Get text from User Profile field by label: " + label);
-        return textFromUserProfileField;
+        return textFromUserProfileField.split(":")[1].trim();
     }
 
     @Step("Check that Profile page is opened")

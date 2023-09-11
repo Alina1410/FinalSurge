@@ -6,6 +6,7 @@ import static org.testng.Assert.*;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
+import utils.PropertyReader;
 import tests.base.TestListener;
 
 public class LoginTest extends BaseTest {
@@ -13,7 +14,7 @@ public class LoginTest extends BaseTest {
     @Test(description = "Check that validation is successful when entering a login and password")
     public void emailAndPasswordValidDate() {
         loginPage.open()
-                .inputEmailAndPassword("vdufna@mailto.plus", "12345Alk")
+                .inputEmailAndPassword(email, password)
                 .clickSignInButton();
 
         assertTrue(platformSelectPage.labelSelectPlatformIsVisible(),"Пользователь не авторизован");

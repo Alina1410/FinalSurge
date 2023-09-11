@@ -10,36 +10,38 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        log.info(">>>>>>>>>>>>>>>>>>>TEST START: " + result.getName() + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        log.info("TEST START: " + result.getName());
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        log.info("Test success: %s " + result.getName());
+        log.info("TEST SUCCESS: " + result.getName());
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        log.info("Test failure: %s " + result.getName());
+        log.info("TEST FAILURE: " + result.getName());
     }
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        log.info("Test skipped: %s " + result.getName());
+        log.info("TEST SKIPPED: " + result.getName());
     }
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-        log.info("Test Failed But Within Success Percentage: %s" + result.getName());
+        log.info("TEST FAILED but within success percentage: " + result.getName());
     }
 
     @Override
     public void onStart(ITestContext iTestContext) {
+        log.info("TEST START : " + iTestContext.getName());
 
     }
 
     @Override
     public void onFinish(ITestContext iTestContext) {
+        log.info("TEST FINISH : " + iTestContext.getName());
 
 
     }

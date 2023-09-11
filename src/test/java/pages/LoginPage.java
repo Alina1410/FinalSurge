@@ -40,10 +40,10 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Click on the Sign In button")
-    public LoginPage clickSignInButton() {
+    public PlatformSelectPage clickSignInButton() {
         driver.findElement(SIGN_IN_BUTTON).click();
         log.info("Click on Sign In button with XPath: " + SIGN_IN_BUTTON);
-        return this;
+        return new PlatformSelectPage(driver);
     }
 
     @Step("Get a email error message")

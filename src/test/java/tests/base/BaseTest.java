@@ -9,10 +9,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.*;
 import pages.*;
+import utils.PropertyReader;
 
 import java.util.concurrent.TimeUnit;
 
-
+@Listeners(TestListener.class)
 public class BaseTest {
 
     protected WebDriver driver;
@@ -28,24 +29,20 @@ public class BaseTest {
     protected PaceCalculatorPage paceCalculatorPage;
     protected WorkoutCalculatorIntensityPage workoutCalculatorIntensityPage;
     protected WorkoutQuickAddPage workoutQuickAddPage;
+    protected String email, password;
 
     @Step("Setting up and opening the browser")
-    @Parameters({"browser"})
     @BeforeMethod
-    public void setUp(@Optional("chrome")String browser) {
-        if (browser.equals("chrome")) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
+    public void setUp() {
 
-        } else {
-            WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
-        }
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-
+        email = System.getenv().getOrDefault("FINAL_SURGE-EMAIL", PropertyReader.getProperty("finalsurge.email"));
+        password = System.getenv().getOrDefault("FINAL_SURGE-PASSWORD", PropertyReader.getProperty("finalsurge.password"));
         loginPage = new LoginPage(driver);
         userProfileModalPage = new UserProfileModalPage(driver);
         userProfilePage = new UserProfilePage(driver);

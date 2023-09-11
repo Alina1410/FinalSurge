@@ -3,6 +3,7 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.PropertyReader;
 
 import java.time.Duration;
 
@@ -11,7 +12,7 @@ public abstract class BasePage {
     static WebDriver driver;
     static WebDriverWait wait;
 
-    final String BASE_URL = "https://www.finalsurge.com/";
+    final String BASE_URL = System.getenv().getOrDefault("FINAL_SURGE-URL", PropertyReader.getProperty("finalsurge.url"));
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

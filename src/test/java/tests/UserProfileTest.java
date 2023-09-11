@@ -25,7 +25,7 @@ public class UserProfileTest extends BaseTest {
         userProfileModalPage
                 .editProfile(userProfile);
 
-        assertEquals(userProfilePage.getBirDay(),userProfilePage.getFieldValue("Birthday"),
+        assertEquals(userProfilePage.getFieldValue("City"),userProfile.getCity(),
                 "Профиль не отредактирован");
 
     }
