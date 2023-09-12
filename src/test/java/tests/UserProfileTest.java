@@ -56,8 +56,10 @@ public class UserProfileTest extends BaseTest {
                 .clickSignInButton();
         platformSelectPage.selectPlatform();
         calendarPage.clickSettingsButton();
-        userProfilePage
-                .openEditProfileForm();
+        userProfilePage.openEditProfileForm();
+        userProfilePicturePage.uploadImage();
+        userProfileModalPage.saveProfileChanges();
+        userProfilePage.openEditProfileForm();
         userProfilePicturePage.removeImage();
         userProfileModalPage.saveProfileChanges();
 
