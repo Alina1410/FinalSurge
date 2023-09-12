@@ -22,7 +22,6 @@ public class PaceCalculatorPage extends BasePage{
         return titlePaceCalculatorResultsIsVisible;
     }
 
-
     @Step("Frame Pace Calculator is visible")
     @Override
     public boolean isPageOpen() {

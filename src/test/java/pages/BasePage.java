@@ -15,7 +15,8 @@ public abstract class BasePage {
     WebDriverWait wait;
 
 
-    final String BASE_URL = System.getenv().getOrDefault("FINAL_SURGE-URL", PropertyReader.getProperty("finalsurge.url"));
+    final String BASE_URL = System.getenv().getOrDefault("FINAL_SURGE-URL",
+            PropertyReader.getProperty("finalsurge.url"));
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

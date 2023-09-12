@@ -15,11 +15,12 @@
         <selenium.version>4.11.0</selenium.version>
         <testing.version>7.7.1</testing.version>
         <bonigarcia.version>5.5.0</bonigarcia.version>
-        <lombok.version>1.18.24</lombok.version>
+        <lombok.version>1.18.26</lombok.version>
         <javafaker.version>1.0.2</javafaker.version>
-        <allure-testng.version>2.13.9</allure-testng.version>
+        <allure-testng.version>2.21.0</allure-testng.version>
         <log4j-core.version>2.20.0</log4j-core.version>
-        <jackson-dataformat-yaml.version>2.12.3</jackson-dataformat-yaml.version>
+        <jackson-dataformat-yaml.version>2.14.2</jackson-dataformat-yaml.version>
+        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
     </properties>
 
     <dependencies>
@@ -49,7 +50,6 @@
             <version>${jackson-dataformat-yaml.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -76,10 +76,7 @@
             <version>${log4j-core.version}</version>
         </dependency>
 
-
-
     </dependencies>
-
 
     <build>
         <plugins>
@@ -93,6 +90,11 @@
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar -Xmx256m
                     </argLine>
+
+
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
 
             </plugin>
@@ -102,6 +104,8 @@
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version>
             </plugin>
+
+
 
         </plugins>
 

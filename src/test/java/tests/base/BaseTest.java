@@ -36,14 +36,15 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
-        options.addArguments("-headless");
+        // options.addArguments("-headless");
 
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 
         email = System.getenv().getOrDefault("FINAL_SURGE-EMAIL", PropertyReader.getProperty("finalsurge.email"));
-        password = System.getenv().getOrDefault("FINAL_SURGE-PASSWORD", PropertyReader.getProperty("finalsurge.password"));
+        password = System.getenv().getOrDefault("FINAL_SURGE-PASSWORD",
+                PropertyReader.getProperty("finalsurge.password"));
         loginPage = new LoginPage(driver);
         userProfileModalPage = new UserProfileModalPage(driver);
         userProfilePage = new UserProfilePage(driver);
@@ -56,8 +57,6 @@ public class BaseTest {
         workoutQuickAddPage = new WorkoutQuickAddPage(driver);
         paceCalculatorModalPage = new PaceCalculatorModalPage(driver);
         paceCalculatorPage = new PaceCalculatorPage(driver);
-
-
     }
 
 

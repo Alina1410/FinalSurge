@@ -20,7 +20,8 @@ public class LoginTest extends BaseTest {
 
     @Test(description = "leave the password field blank")
     public void blankPasswordField() {
-        loginPage.open()
+        loginPage
+                .open()
                 .inputEmailAndPassword(email, "")
                 .clickSignInButton();
 
