@@ -53,10 +53,3 @@ Testing of [FinalSurge](https://log.finalsurge.com/login.cshtml) website. It is 
 #### **_- Add Workout through button Quick Add:_**
 
 - Filling form Quick Workout
-
-### **User Data:**
-
-- finalsurge.url = https://www.finalsurge.com/
-- finalsurge.email = vdufna@mailto.plus
-- finalsurge.password = 12345Alk
-
